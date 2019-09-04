@@ -8,7 +8,6 @@ import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import tw.chao.hsiufan.databinding.recyclerview.databinding.ItemUserBinding;
@@ -16,10 +15,7 @@ import tw.chao.hsiufan.databinding.recyclerview.model.User;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter implements BindableRecyclerViewAdapter<List<User>> {
 
-    private List<User> data = new ArrayList<>();
-
-    public RecyclerViewAdapter() {
-    }
+    private List<User> data;
 
     @NonNull
     @Override
@@ -41,8 +37,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter implements Bindabl
 
     @Override
     public void setData(List<User> users) {
-        data.clear();
-        data.addAll(users);
+        data = users;
         notifyDataSetChanged();
     }
 
